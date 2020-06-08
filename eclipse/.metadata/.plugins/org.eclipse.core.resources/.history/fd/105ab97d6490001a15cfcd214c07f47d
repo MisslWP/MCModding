@@ -1,0 +1,118 @@
+package ru.uncledrema.additionalitems.inventoryitems;
+
+import java.util.ArrayList;
+import java.util.Set;
+
+import com.google.common.collect.Sets;
+
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTBase;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.DamageSource;
+import net.minecraftforge.event.entity.item.ItemTossEvent;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.entity.living.LivingDropsEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent.Clone;
+
+public class EventsForge {
+	
+	static Set blocked_items = Sets.newHashSet(new Item[] {});
+	
+	public void addDropBlocker(Item item)
+	{
+		blocked_items.add(item);
+	}
+	
+	@SubscribeEvent
+	public void dropQ(ItemTossEvent event) {
+		if (event.entityItem != null) {
+			ItemStack item = event.entityItem.getEntityItem();
+			if (item.hasTagCompound() ) {
+				System.out.println(item.getTagCompound().getString("playerBound"));
+			}
+			if (item.hasTagCompound() ) {
+				if (item.getTagCompound().getString("playerBound").equals("")) {
+					event.setCanceled(false);
+				}
+				else {
+						event.player.inventory.addItemStackToInventory(item);
+						event.setCanceled(true);
+					}
+			}
+		}
+	}
+	
+	
+	 /*@SubscribeEvent 
+	 public void saveItems(LivingDropsEvent event) { 
+		 if (event.entity instanceof EntityPlayer) 
+		 { 
+			 EntityPlayer player = (EntityPlayer) event.entity; 
+			 ArrayList<EntityItem> droppedItems = player.capturedDrops;
+			 for (EntityItem entityItem : droppedItems) { 
+				 if (entityItem.getEntityItem().getItem() instanceof ItemStoreThree) { 
+					 entityItem.setDead(); 
+					 } 
+				 }
+
+	 
+	 } }*/
+	 
+	
+	@SubscribeEvent
+	public void loadItems(Clone event)
+	{
+		EntityPlayer oldplayer = event.original;
+		EntityPlayer newplayer = event.entityPlayer;
+		
+		ArrayList<EntityItem> droppedItems = oldplayer.capturedDrops;
+		
+		for (EntityItem entityItem : droppedItems)
+		{
+			if (entityItem.getEntityItem().getItem() instanceof ItemStoreThree || entityItem.getEntityItem().getItem() instanceof ItemStoreTwo || entityItem.getEntityItem().getItem() instanceof ItemStoreFive) {
+				newplayer.inventory.addItemStackToInventory(entityItem.getEntityItem());
+				entityItem.setDead();
+			}
+		}
+	}
+	
+	
+	
+	  @SubscribeEvent public void onPlayerDeath(LivingDeathEvent e)
+	  {
+		  if (e.entity instanceof EntityPlayer) {
+			  
+			  DamageSource source = e.source;
+	  if (source != DamageSource.anvil || source != DamageSource.cactus || source != DamageSource.drown || source != DamageSource.fall || source != DamageSource.fallingBlock || source != DamageSource.inFire || source != DamageSource.inWall || source != DamageSource.lava || source != DamageSource.magic || source != DamageSource.onFire || source != DamageSource.outOfWorld || source != DamageSource.starve || source != DamageSource.wither)
+	  {
+		  EntityPlayer p = (EntityPlayer) e.entity;
+		  
+		  if (!(source.getEntity() instanceof EntityPlayerMP)) {
+		  System.out.println("Player " + p.getDisplayName() + " with UUID " +
+		  p.getUniqueID() + " died at coords: x=" + p.posX + " y=" +
+		  p.posY + " z=" + p.posZ + " from entity " + " death source desc: " + source.getDamageType());
+		  }
+		  else {
+			  EntityPlayer killer = (EntityPlayer) source.getEntity();
+			  System.out.println("Player " + p.getDisplayName() + " with UUID " +
+					  p.getUniqueID() + " died at coords: x=" + p.posX + " y=" +
+					  p.posY + " z=" + p.posZ + " from entity " + source.getEntity().getClass().getName() + " death source desc: " + source.getDamageType() + " killer name: " + killer.getDisplayName() + " with UUID " + killer.getUniqueID());
+		  }
+	  }
+	  
+		  }
+	  }
+	 
+	
+
+}

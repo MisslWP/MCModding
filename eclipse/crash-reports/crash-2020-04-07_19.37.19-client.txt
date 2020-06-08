@@ -1,0 +1,117 @@
+---- Minecraft Crash Report ----
+// My bad.
+
+Time: 07.04.20 19:37
+Description: Getting biome
+
+java.lang.NullPointerException: Getting biome
+	at net.minecraft.world.chunk.Chunk.getBiomeGenForWorldCoords(Chunk.java:1407)
+	at net.minecraft.world.World.getBiomeGenForCoordsBody(World.java:177)
+	at net.minecraft.world.WorldProvider.getBiomeGenForCoords(WorldProvider.java:423)
+	at net.minecraft.world.World.getBiomeGenForCoords(World.java:166)
+	at net.minecraftforge.client.ForgeHooksClient.getSkyBlendColour(ForgeHooksClient.java:407)
+	at net.minecraft.world.World.getSkyColorBody(World.java:1791)
+	at net.minecraft.world.WorldProvider.getSkyColor(WorldProvider.java:457)
+	at net.minecraft.world.World.getSkyColor(World.java:1769)
+	at net.minecraft.client.renderer.EntityRenderer.updateFogColor(EntityRenderer.java:1760)
+	at net.minecraft.client.renderer.EntityRenderer.renderWorld(EntityRenderer.java:1230)
+	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1087)
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1067)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:962)
+	at net.minecraft.client.main.Main.main(Main.java:164)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(Unknown Source)
+	at GradleStart.main(Unknown Source)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Stacktrace:
+	at net.minecraft.world.chunk.Chunk.getBiomeGenForWorldCoords(Chunk.java:1407)
+
+-- Coordinates of biome request --
+Details:
+	Location: World: (293,0,97), Chunk: (at 5,0,1 in 18,6; contains blocks 288,0,96 to 303,255,111), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,0,0 to 511,255,511)
+Stacktrace:
+	at net.minecraft.world.World.getBiomeGenForCoordsBody(World.java:177)
+	at net.minecraft.world.WorldProvider.getBiomeGenForCoords(WorldProvider.java:423)
+	at net.minecraft.world.World.getBiomeGenForCoords(World.java:166)
+	at net.minecraftforge.client.ForgeHooksClient.getSkyBlendColour(ForgeHooksClient.java:407)
+	at net.minecraft.world.World.getSkyColorBody(World.java:1791)
+	at net.minecraft.world.WorldProvider.getSkyColor(WorldProvider.java:457)
+	at net.minecraft.world.World.getSkyColor(World.java:1769)
+	at net.minecraft.client.renderer.EntityRenderer.updateFogColor(EntityRenderer.java:1760)
+	at net.minecraft.client.renderer.EntityRenderer.renderWorld(EntityRenderer.java:1230)
+
+-- Affected level --
+Details:
+	Level name: MpServer
+	All players: 1 total; [EntityClientPlayerMP['Player757'/1079, l='MpServer', x=319,94, y=80,76, z=123,99]]
+	Chunk stats: MultiplayerChunkCache: 0, 0
+	Level seed: 0
+	Level generator: ID 00 - default, ver 1. Features enabled: false
+	Level generator options: 
+	Level spawn location: World: (220,64,208), Chunk: (at 12,4,0 in 13,13; contains blocks 208,0,208 to 223,255,223), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,0,0 to 511,255,511)
+	Level time: 6640 game time, 6640 day time
+	Level dimension: 0
+	Level storage version: 0x00000 - Unknown?
+	Level weather: Rain time: 0 (now: false), thunder time: 0 (now: false)
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: false
+	Forced entities: 1 total; [EntityClientPlayerMP['Player757'/1079, l='MpServer', x=319,94, y=80,76, z=123,99]]
+	Retry entities: 0 total; []
+	Server brand: fml,forge
+	Server type: Integrated singleplayer server
+Stacktrace:
+	at net.minecraft.client.multiplayer.WorldClient.addWorldInfoToCrashReport(WorldClient.java:415)
+	at net.minecraft.client.Minecraft.addGraphicsAndWorldToCrashReport(Minecraft.java:2566)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:984)
+	at net.minecraft.client.main.Main.main(Main.java:164)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(Unknown Source)
+	at GradleStart.main(Unknown Source)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.7.10
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_241, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 816090632 bytes (778 MB) / 1037959168 bytes (989 MB) up to 1037959168 bytes (989 MB)
+	JVM Flags: 3 total; -Xincgc -Xmx1024M -Xms1024M
+	AABB Pool Size: 0 (0 bytes; 0 MB) allocated, 0 (0 bytes; 0 MB) used
+	IntCache: cache: 0, tcache: 30, allocated: 12, tallocated: 84
+	FML: MCP v9.05 FML v7.10.99.99 Minecraft Forge 10.13.4.1558 5 mods loaded, 5 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+	UCHIJAAAAAAAAA	mcp{9.05} [Minecraft Coder Pack] (minecraft.jar) 
+	UCHIJAAAAAAAAA	FML{7.10.99.99} [Forge Mod Loader] (forgeSrc-1.7.10-10.13.4.1558-1.7.10.jar) 
+	UCHIJAAAAAAAAA	Forge{10.13.4.1558} [Minecraft Forge] (forgeSrc-1.7.10-10.13.4.1558-1.7.10.jar) 
+	UCHIJAAAAAAAAA	funcraftmod{1.0} [FunCraft Mod] (bin) 
+	UCHIJAAAAAAAAA	inventoryitemmod{1.0.0} [Podsumok Mod] (bin) 
+	GL info: ' Vendor: 'NVIDIA Corporation' Version: '4.6.0 NVIDIA 432.00' Renderer: 'GeForce GTX 1060 6GB/PCIe/SSE2'
+	Launched Version: 1.7.10
+	LWJGL: 2.9.1
+	OpenGL: GeForce GTX 1060 6GB/PCIe/SSE2 GL version 4.6.0 NVIDIA 432.00, NVIDIA Corporation
+	GL Caps: Using GL 1.3 multitexturing.
+Using framebuffer objects because OpenGL 3.0 is supported and separate blending is supported.
+Anisotropic filtering is supported and maximum anisotropy is 16.
+Shaders are available because OpenGL 2.1 is supported.
+
+	Is Modded: Definitely; Client brand changed to 'fml,forge'
+	Type: Client (map_client.txt)
+	Resource Packs: []
+	Current Language: English (US)
+	Profiler Position: N/A (disabled)
+	Vec3 Pool Size: 0 (0 bytes; 0 MB) allocated, 0 (0 bytes; 0 MB) used
+	Anisotropic Filtering: Off (1)

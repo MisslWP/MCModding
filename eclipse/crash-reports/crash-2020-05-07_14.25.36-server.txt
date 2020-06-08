@@ -1,0 +1,116 @@
+---- Minecraft Crash Report ----
+// This doesn't make any sense!
+
+Time: 07.05.20 14:25
+Description: Ticking entity
+
+java.lang.ClassCastException: net.minecraft.entity.monster.EntityCreeper cannot be cast to net.minecraft.entity.player.EntityPlayer
+	at ru.uncledrema.additionalitems.inventoryitems.EventsForge.onPlayerDeath(EventsForge.java:90)
+	at cpw.mods.fml.common.eventhandler.ASMEventHandler_9_EventsForge_onPlayerDeath_LivingDeathEvent.invoke(.dynamic)
+	at cpw.mods.fml.common.eventhandler.ASMEventHandler.invoke(ASMEventHandler.java:54)
+	at cpw.mods.fml.common.eventhandler.EventBus.post(EventBus.java:140)
+	at net.minecraftforge.common.ForgeHooks.onLivingDeath(ForgeHooks.java:305)
+	at net.minecraft.entity.EntityLivingBase.onDeath(EntityLivingBase.java:982)
+	at net.minecraft.entity.monster.EntityCreeper.onDeath(EntityCreeper.java:198)
+	at net.minecraft.entity.EntityLivingBase.attackEntityFrom(EntityLivingBase.java:940)
+	at net.minecraft.entity.monster.EntityMob.attackEntityFrom(EntityMob.java:84)
+	at net.minecraft.entity.EntityLivingBase.onEntityUpdate(EntityLivingBase.java:241)
+	at net.minecraft.entity.EntityLiving.onEntityUpdate(EntityLiving.java:192)
+	at net.minecraft.entity.Entity.onUpdate(Entity.java:386)
+	at net.minecraft.entity.EntityLivingBase.onUpdate(EntityLivingBase.java:1766)
+	at net.minecraft.entity.EntityLiving.onUpdate(EntityLiving.java:250)
+	at net.minecraft.entity.monster.EntityMob.onUpdate(EntityMob.java:47)
+	at net.minecraft.entity.monster.EntityCreeper.onUpdate(EntityCreeper.java:174)
+	at net.minecraft.world.World.updateEntityWithOptionalForce(World.java:2298)
+	at net.minecraft.world.WorldServer.updateEntityWithOptionalForce(WorldServer.java:684)
+	at net.minecraft.world.World.updateEntity(World.java:2258)
+	at net.minecraft.world.World.updateEntities(World.java:2108)
+	at net.minecraft.world.WorldServer.updateEntities(WorldServer.java:515)
+	at net.minecraft.server.MinecraftServer.updateTimeLightAndEntities(MinecraftServer.java:703)
+	at net.minecraft.server.MinecraftServer.tick(MinecraftServer.java:614)
+	at net.minecraft.server.integrated.IntegratedServer.tick(IntegratedServer.java:118)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:485)
+	at net.minecraft.server.MinecraftServer$2.run(MinecraftServer.java:752)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Stacktrace:
+	at ru.uncledrema.additionalitems.inventoryitems.EventsForge.onPlayerDeath(EventsForge.java:90)
+	at cpw.mods.fml.common.eventhandler.ASMEventHandler_9_EventsForge_onPlayerDeath_LivingDeathEvent.invoke(.dynamic)
+	at cpw.mods.fml.common.eventhandler.ASMEventHandler.invoke(ASMEventHandler.java:54)
+	at cpw.mods.fml.common.eventhandler.EventBus.post(EventBus.java:140)
+	at net.minecraftforge.common.ForgeHooks.onLivingDeath(ForgeHooks.java:305)
+	at net.minecraft.entity.EntityLivingBase.onDeath(EntityLivingBase.java:982)
+	at net.minecraft.entity.monster.EntityCreeper.onDeath(EntityCreeper.java:198)
+	at net.minecraft.entity.EntityLivingBase.attackEntityFrom(EntityLivingBase.java:940)
+	at net.minecraft.entity.monster.EntityMob.attackEntityFrom(EntityMob.java:84)
+	at net.minecraft.entity.EntityLivingBase.onEntityUpdate(EntityLivingBase.java:241)
+	at net.minecraft.entity.EntityLiving.onEntityUpdate(EntityLiving.java:192)
+	at net.minecraft.entity.Entity.onUpdate(Entity.java:386)
+	at net.minecraft.entity.EntityLivingBase.onUpdate(EntityLivingBase.java:1766)
+	at net.minecraft.entity.EntityLiving.onUpdate(EntityLiving.java:250)
+	at net.minecraft.entity.monster.EntityMob.onUpdate(EntityMob.java:47)
+	at net.minecraft.entity.monster.EntityCreeper.onUpdate(EntityCreeper.java:174)
+	at net.minecraft.world.World.updateEntityWithOptionalForce(World.java:2298)
+	at net.minecraft.world.WorldServer.updateEntityWithOptionalForce(WorldServer.java:684)
+	at net.minecraft.world.World.updateEntity(World.java:2258)
+
+-- Entity being ticked --
+Details:
+	Entity Type: Creeper (net.minecraft.entity.monster.EntityCreeper)
+	Entity ID: 735
+	Entity Name: Крипер
+	Entity's Exact location: 0,50, 51,00, 318,50
+	Entity's Block location: World: (0,51,318), Chunk: (at 0,3,14 in 0,19; contains blocks 0,0,304 to 15,255,319), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,0,0 to 511,255,511)
+	Entity's Momentum: 0,00, -0,08, 0,00
+Stacktrace:
+	at net.minecraft.world.World.updateEntities(World.java:2108)
+	at net.minecraft.world.WorldServer.updateEntities(WorldServer.java:515)
+
+-- Affected level --
+Details:
+	Level name: Новый мир
+	All players: 1 total; [EntityPlayerMP['Player673'/1144, l='Новый мир', x=-53,50, y=73,00, z=262,50]]
+	Chunk stats: ServerChunkCache: 638 Drop: 0
+	Level seed: 2954955550167519428
+	Level generator: ID 00 - default, ver 1. Features enabled: true
+	Level generator options: 
+	Level spawn location: World: (-52,64,256), Chunk: (at 12,4,0 in -4,16; contains blocks -64,0,256 to -49,255,271), Region: (-1,0; contains chunks -32,0 to -1,31, blocks -512,0,0 to -1,255,511)
+	Level time: 376 game time, 376 day time
+	Level dimension: 0
+	Level storage version: 0x04ABD - Anvil
+	Level weather: Rain time: 65372 (now: false), thunder time: 33691 (now: false)
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: true
+Stacktrace:
+	at net.minecraft.server.MinecraftServer.updateTimeLightAndEntities(MinecraftServer.java:703)
+	at net.minecraft.server.MinecraftServer.tick(MinecraftServer.java:614)
+	at net.minecraft.server.integrated.IntegratedServer.tick(IntegratedServer.java:118)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:485)
+	at net.minecraft.server.MinecraftServer$2.run(MinecraftServer.java:752)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.7.10
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_241, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 635950968 bytes (606 MB) / 1037959168 bytes (989 MB) up to 1037959168 bytes (989 MB)
+	JVM Flags: 3 total; -Xincgc -Xmx1024M -Xms1024M
+	AABB Pool Size: 0 (0 bytes; 0 MB) allocated, 0 (0 bytes; 0 MB) used
+	IntCache: cache: 0, tcache: 0, allocated: 12, tallocated: 94
+	FML: MCP v9.05 FML v7.10.99.99 Minecraft Forge 10.13.4.1558 5 mods loaded, 5 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+	UCHIJAAAA	mcp{9.05} [Minecraft Coder Pack] (minecraft.jar) 
+	UCHIJAAAA	FML{7.10.99.99} [Forge Mod Loader] (forgeSrc-1.7.10-10.13.4.1558-1.7.10.jar) 
+	UCHIJAAAA	Forge{10.13.4.1558} [Minecraft Forge] (forgeSrc-1.7.10-10.13.4.1558-1.7.10.jar) 
+	UCHIJAAAA	funcraftitems{1.3} [FunCraft Items Mod] (bin) 
+	UCHIJAAAA	inventoryitemmod{2.1} [Podsumok Mod] (bin) 
+	GL info: ~~ERROR~~ RuntimeException: No OpenGL context found in the current thread.
+	Profiler Position: N/A (disabled)
+	Vec3 Pool Size: 0 (0 bytes; 0 MB) allocated, 0 (0 bytes; 0 MB) used
+	Player Count: 1 / 8; [EntityPlayerMP['Player673'/1144, l='Новый мир', x=-53,50, y=73,00, z=262,50]]
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'fml,forge'

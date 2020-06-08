@@ -1,0 +1,39 @@
+[20:35:16] [main/INFO]: Setting user: Player443
+[20:35:17] [Client thread/INFO]: LWJGL Version: 2.9.1
+[20:35:23] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:FunCraft Items Mod, FMLFileResourcePack:Podsumok Mod
+[20:35:24] [Sound Library Loader/INFO]: Sound engine started
+[20:35:25] [Client thread/INFO]: Created: 16x16 textures/blocks-atlas
+[20:35:25] [Client thread/INFO]: Created: 16x16 textures/items-atlas
+[20:35:25] [Client thread/INFO]: Reloading ResourceManager: Default, FMLFileResourcePack:Forge Mod Loader, FMLFileResourcePack:Minecraft Forge, FMLFileResourcePack:FunCraft Items Mod, FMLFileResourcePack:Podsumok Mod
+[20:35:25] [Client thread/INFO]: Created: 512x256 textures/blocks-atlas
+[20:35:25] [Client thread/INFO]: Created: 512x512 textures/items-atlas
+[20:35:26] [Sound Library Loader/INFO]: Sound engine started
+[20:35:32] [Server thread/INFO]: Starting integrated minecraft server version 1.7.10
+[20:35:32] [Server thread/INFO]: Generating keypair
+[20:35:33] [Server thread/INFO]: Preparing start region for level 0
+[20:35:33] [Server thread/INFO]: Changing view distance to 12, from 10
+[20:35:34] [Server thread/INFO]: Player443[local:E:2fd3ad0f] logged in with entity id 303 at (147.8902464005902, 64.0, 276.69999998807907)
+[20:35:34] [Server thread/INFO]: Player443 присоединился к игре
+[20:35:35] [Server thread/INFO]: Saving and pausing game...
+[20:35:35] [Server thread/INFO]: Saving chunks for level 'Новый мир'/Overworld
+[20:35:35] [Server thread/INFO]: Saving chunks for level 'Новый мир'/Nether
+[20:35:35] [Server thread/INFO]: Saving chunks for level 'Новый мир'/The End
+[20:35:39] [Server thread/INFO]: Player443 выпал из мира
+[20:35:40] [Client thread/INFO]: [CHAT] Player443 выпал из мира
+[20:35:40] [Client thread/INFO]: [CHAT] Ой! Похоже, это было больно
+[20:35:44] [Server thread/INFO]: Player443 заработал достижение [Проверить карманы]
+[20:35:44] [Client thread/INFO]: [CHAT] Player443 заработал достижение [Проверить карманы]
+[20:35:49] [Client thread/INFO]: [CHAT] EnderDragon, EnderCrystal, Enderman
+[20:35:49] [Server thread/INFO]: [Player443: Объект успешно вызван]
+[20:35:49] [Client thread/INFO]: [CHAT] Объект успешно вызван
+[20:35:53] [Server thread/INFO]: Player443 был убит Дракон Эндера
+[20:35:53] [Client thread/INFO]: [CHAT] Player443 был убит Дракон Эндера
+[20:35:55] [Client thread/INFO]: Stopping!
+[20:35:55] [Server thread/INFO]: Stopping server
+[20:35:55] [Server thread/INFO]: Saving players
+[20:35:55] [Server thread/INFO]: Saving worlds
+[20:35:55] [Server thread/INFO]: Saving chunks for level 'Новый мир'/Overworld
+[20:35:55] [Server thread/INFO]: Saving chunks for level 'Новый мир'/Nether
+[20:35:55] [Server thread/INFO]: Saving chunks for level 'Новый мир'/The End
+[20:35:55] [Client Shutdown Thread/INFO]: Stopping server
+[20:35:55] [Client Shutdown Thread/INFO]: Saving players
